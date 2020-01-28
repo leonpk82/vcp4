@@ -1,0 +1,63 @@
+    @staticmethod
+    def zero():
+        # Sets MAX_VELO to 75% of max from ini file settings
+        """MAX_VELO_0%"""
+        c_val = (INFO.maxVelocity() / 60) # Get current MV static param from ini
+        set_val = 0
+        CMD.maxvel(float(set_val))
+
+    @staticmethod
+    def twentyfive():
+        # Sets MAX_VELO to 75% of max from ini file settings
+        """MAX_VELO_25%"""
+        c_val = (INFO.maxVelocity() / 60) # Get current MV static param from ini
+        set_val = c_val * .25
+        CMD.maxvel(float(set_val))
+
+    @staticmethod
+    def fifty():
+        # Sets MAX_VELO to 50% of max from ini file settings
+        """MAX_VELO_50%"""
+        c_val = (INFO.maxVelocity() / 60) # Get current MV static param from ini
+        set_val = c_val * .5
+        CMD.maxvel(float(set_val))
+
+    @staticmethod
+    def seventyfive():
+        # Sets MAX_VELO to 75% of max from ini file settings
+        """MAX_VELO_75%"""
+        c_val = (INFO.maxVelocity() / 60) # Get current MV static param from ini
+        set_val = c_val * .75
+        CMD.maxvel(float(set_val))
+
+    @staticmethod
+    def hundred():
+        # Sets MAX_VELO to 100% of max from ini file settings
+        # Used because reset disbales the button when not ready. Preserve UI look and feel for the group.
+        """MAX_VELO_100%"""
+        c_val = (INFO.maxVelocity() / 60) # Get current MV static param from ini
+        set_val = c_val * 1
+        CMD.maxvel(float(set_val))
+
+        #end rapid mod
+
+
+#feedmod
+
+
+    @staticmethod
+    def plus():
+        # Used to provide a btn method for increasing the FRO without a slider:-)
+        # Set btn to AutoRepeat so you can hold it down for cont decrease
+        """Feed Override Increase Value"""
+        p_val = STAT.feedrate # Get current FRO val
+        CMD.feedrate(float(p_val) + .01) # Increase by 1% per press
+
+    @staticmethod
+    def minus():
+        # Used to provide a btn method for increasing the FRO without a slider:-)
+        # Set btn to AutoRepeat so you can hold it down for cont decrease
+        """Feed Override Decrease Value"""
+        m_val = STAT.feedrate # Get current FRO val
+        CMD.feedrate(float(m_val) - .01) # Decrease by 1% per press
+
