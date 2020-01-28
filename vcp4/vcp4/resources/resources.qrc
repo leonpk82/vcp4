@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="images">
+    <file>images/dark_background.jpg</file>
+    <file>images/refz.png</file>
+    <file>images/refy.png</file>
+    <file>images/refx.png</file>
+    <file>images/refa.png</file>
+    <file>images/Axes.png</file>
+  </qresource>
+</RCC>

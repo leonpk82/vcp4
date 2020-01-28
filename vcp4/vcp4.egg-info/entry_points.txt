@@ -1,0 +1,6 @@
+[gui_scripts]
+vcp4 = vcp4:main
+
+[qtpyvcp.vcp]
+vcp4 = vcp4
+
