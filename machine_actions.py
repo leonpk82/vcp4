@@ -25,19 +25,35 @@ class estop:
     """E-Stop action group"""
     @staticmethod
     def activate():
-        """Set E-Stop active"""
+        """Set E-Stop active
+
+        ActionButton syntax::
+
+            machine.estop.activate
+        """
         LOG.debug("Setting state red<ESTOP>")
         CMD.state(linuxcnc.STATE_ESTOP)
 
     @staticmethod
     def reset():
-        """Resets E-Stop"""
+        """Resets E-Stop
+
+        ActionButton syntax::
+
+            machine.estop.reset
+        """
         LOG.debug("Setting state green<ESTOP_RESET>")
         CMD.state(linuxcnc.STATE_ESTOP_RESET)
 
     @staticmethod
     def toggle():
-        """Toggles E-Stop state"""
+        """Toggles E-Stop state
+
+        ActionButton syntax::
+
+            machine.estop.toggle
+        """
+
         if estop.is_activated():
             estop.reset()
         else:
@@ -161,6 +177,13 @@ def issue_mdi(command, reset=True):
         NO_FORCE_HOMING in the INI) and the interpreter is IDLE.  The task
         mode will automatically be switched to MDI prior to issuing the command
         and will be returned to the previous mode when the interpreter becomes IDLE.
+
+        ActionButton syntax to issue G0 X5:
+        ::
+
+            machine.issue_mdi:G0X5
+
+        It is simpler to use the MDIButton, examples in the Widgets section.
 
     Args:
         command (str) : A valid RS274 gcode command string. Multiple MDI commands
@@ -311,7 +334,6 @@ class feed_override:
     def reset():
         """Feed Override Reset"""
         CMD.feedrate(1.0)
-
     @staticmethod
     def plus():
         # Used to provide a btn method for increasing the FRO without a slider:-)
@@ -419,10 +441,6 @@ class rapid_override:
         CMD.rapidrate(float(value) / 100)
 
     @staticmethod
-    def set10(value):
-        CMD.rapidrate(.10)
-
-    @staticmethod
     def reset():
         CMD.rapidrate(1.0)
 
@@ -483,12 +501,13 @@ class max_velocity:
     def set(value):
         """Max Velocity Override Set Value"""
         CMD.maxvel(float(value) / 60)
-        #rapid mods
-    
+
     @staticmethod
     def reset():
         """Max Velocity Override Reset Value"""
         CMD.maxvel(INFO.maxVelocity() / 60)
+
+#rapidmod
 
     @staticmethod
     def zero():
@@ -532,6 +551,9 @@ class max_velocity:
         CMD.maxvel(float(set_val))
 
         #end rapid mod
+
+
+
 
 def _max_velocity_ok(value=100, widget=None):
     if STAT.task_state == linuxcnc.STATE_ON:
@@ -686,11 +708,11 @@ class home:
         """Home a specific axis
 
         Args:
-            axis (int | str) : Either the axis letter or number to home.
+            axis (int | str) : one of (xyzabcuvw or 012345678)
 
-        ActionButton syntax::
+        ActionButton syntax to home the X axis::
 
-            machine.home.axis:axis
+            machine.home.axis:x
         """
         axis = getAxisLetter(axis)
         if axis.lower() == 'all':
@@ -705,11 +727,11 @@ class home:
         """Home a specific joint
 
         Args:
-            jnum (int) : The number of the joint to home.
+            jnum (int) : one of (012345678)
 
-        ActionButton syntax::
+        ActionButton syntax to home joint 0::
 
-            machine.home.joint:jnum
+            machine.home.joint:0
         """
         LOG.info("Homing joint: {}".format(jnum))
         _home_joint(jnum)
@@ -780,11 +802,11 @@ class unhome:
         """Unhome a specific axis
 
         Args:
-            axis (int | str) : Either the axis letter or number to home.
+            axis (int | str) : one of (xyzabcuvw or 012345678)
 
-        ActionButton syntax::
+        ActionButton syntax to unhome the X axis::
 
-            machine.unhome.axis:axis
+            machine.unhome.axis:x
         """
         axis = getAxisLetter(axis)
         if axis.lower() == 'all': # not sure what this is copied from home
@@ -801,9 +823,9 @@ class unhome:
         Args:
             jnum (int) : The number of the joint to home.
 
-        ActionButton syntax::
+        ActionButton syntax to unhome the joint 0::
 
-            machine.unhome.joint:jnum
+            machine.unhome.joint:0
         """
         LOG.info("Unhoming joint: {}".format(jnum))
         _unhome_joint(jnum)
@@ -1007,6 +1029,10 @@ class jog:
     @staticmethod
     def axis(axis, direction=0, speed=None, distance=None):
         """Jog an axis.
+
+        Action Button Syntax to jog the X axis in the positive direction::
+
+            machine.jog.axis:x,pos
 
         Args:
             axis (str | int) : Either the letter or number of the axis to jog.
