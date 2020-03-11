@@ -150,7 +150,7 @@ background-color: rgb(186, 255, 182)
              <number>1</number>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="page">
              <layout class="QGridLayout" name="gridLayout_8">
@@ -4778,7 +4778,7 @@ font: 14pt &quot;DejaVu Sans&quot;
              <enum>QFrame::NoFrame</enum>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page_5">
              <layout class="QGridLayout" name="gridLayout_12">
@@ -5638,7 +5638,7 @@ border-color:rgb(52, 101, 164);
                   <item row="4" column="0">
                    <widget class="ActionButton" name="home_z">
                     <property name="styleSheet">
-                     <string notr="true">border-color:rgb(0,255,0)</string>
+                     <string notr="true">border-color:rgb(240,240,80)</string>
                     </property>
                     <property name="text">
                      <string>HOME Z</string>
@@ -5684,7 +5684,7 @@ ALL</string>
                   <item row="0" column="0">
                    <widget class="ActionButton" name="homeall">
                     <property name="styleSheet">
-                     <string notr="true">border-color:rgb(0,255,0)</string>
+                     <string notr="true">border-color:rgb(240,240,80)</string>
                     </property>
                     <property name="rules" stdset="0">
                      <string>[{&quot;channels&quot;: [{&quot;url&quot;: &quot;status:homed&quot;, &quot;trigger&quot;: true}, {&quot;url&quot;: &quot;status:joint.1.homed&quot;, &quot;trigger&quot;: false}, {&quot;url&quot;: &quot;status:joint.2.homed&quot;, &quot;trigger&quot;: false}], &quot;property&quot;: &quot;Text&quot;, &quot;expression&quot;: &quot;'HOMED' if ch[0][0] and ch[0][1] and ch[0][2] else 'Home\\nAll'&quot;, &quot;name&quot;: &quot;Button Name&quot;}, {&quot;channels&quot;: [{&quot;url&quot;: &quot;status:homed&quot;, &quot;trigger&quot;: true}, {&quot;url&quot;: &quot;status:joint.1.homed&quot;, &quot;trigger&quot;: false}, {&quot;url&quot;: &quot;status:joint.2.homed&quot;, &quot;trigger&quot;: false}, {&quot;url&quot;: &quot;status:joint.2.homed&quot;, &quot;trigger&quot;: false}], &quot;property&quot;: &quot;Style Sheet&quot;, &quot;expression&quot;: &quot;\&quot;border-color:rgb(0,255,0)\&quot; if ch[0][0] and ch[0][1] and ch[0][2] and ch[0][2] else 'border-color:rgb(240,240,80)'&quot;, &quot;name&quot;: &quot;back color&quot;}]</string>
@@ -5697,7 +5697,7 @@ ALL</string>
                   <item row="1" column="0">
                    <widget class="ActionButton" name="home_x">
                     <property name="styleSheet">
-                     <string notr="true">border-color:rgb(0,255,0)</string>
+                     <string notr="true">border-color:rgb(240,240,80)</string>
                     </property>
                     <property name="text">
                      <string>HOME X</string>
@@ -5733,7 +5733,7 @@ ALL</string>
                   <item row="3" column="0">
                    <widget class="ActionButton" name="home_y">
                     <property name="styleSheet">
-                     <string notr="true">border-color:rgb(0,255,0)</string>
+                     <string notr="true">border-color:rgb(240,240,80)</string>
                     </property>
                     <property name="text">
                      <string>HOME Y</string>
@@ -6423,6 +6423,12 @@ border-color:rgb(52, 101, 164)
              <layout class="QGridLayout" name="gridLayout_9">
               <item row="0" column="0">
                <widget class="GcodeEditor" name="gcodeeditor_3">
+                <property name="font">
+                 <font>
+                  <family>Nimbus Mono L</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
                 <property name="styleSheet">
                  <string notr="true"/>
                 </property>
@@ -6903,7 +6909,7 @@ border-color:rgb(52, 101, 164)
                 <item row="4" column="0">
                  <widget class="ActionButton" name="optional_stop">
                   <property name="styleSheet">
-                   <string notr="true">border-color:rgb(0,255,0)</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>M01 </string>
@@ -6984,7 +6990,7 @@ border-color:rgb(52, 101, 164)
                 <item row="3" column="0">
                  <widget class="ActionButton" name="Block_delete">
                   <property name="styleSheet">
-                   <string notr="true">border-color:rgb(0,255,0)</string>
+                   <string notr="true"/>
                   </property>
                   <property name="text">
                    <string>BLOCK
@@ -7057,7 +7063,7 @@ SKIP</string>
                       </size>
                      </property>
                      <property name="alignment">
-                      <set>Qt::AlignAbsolute|Qt::AlignBaseline|Qt::AlignBottom|Qt::AlignTop</set>
+                      <set>Qt::AlignAbsolute|Qt::AlignTop|Qt::AlignVCenter</set>
                      </property>
                      <property name="rules" stdset="0">
                       <string>[{&quot;channels&quot;: [{&quot;url&quot;: &quot;status:state&quot;, &quot;trigger&quot;: true}], &quot;property&quot;: &quot;Flashing&quot;, &quot;expression&quot;: &quot;ch[0]==3&quot;, &quot;name&quot;: &quot;alarm&quot;}, {&quot;channels&quot;: [{&quot;url&quot;: &quot;status:state&quot;, &quot;trigger&quot;: true}], &quot;property&quot;: &quot;Enable&quot;, &quot;expression&quot;: &quot;ch[0]==3&quot;, &quot;name&quot;: &quot;enable when in alarm&quot;}]</string>
@@ -8245,7 +8251,7 @@ GridFrame {
                 <item row="0" column="2">
                  <widget class="ActionButton" name="power">
                   <property name="text">
-                   <string>READY</string>
+                   <string>POWER</string>
                   </property>
                   <property name="checkable">
                    <bool>true</bool>
@@ -8509,7 +8515,7 @@ ActionButton::pressed{ border-color:rgb(0,255,0)}</string>
                 <set>Qt::AlignCenter</set>
                </property>
                <property name="rules" stdset="0">
-                <string>[{&quot;channels&quot;: [{&quot;url&quot;: &quot;status:spindle.0.speed&quot;, &quot;trigger&quot;: true}], &quot;property&quot;: &quot;Text&quot;, &quot;expression&quot;: &quot;'RPM ' + '{:.0f}'.format(ch[0])&quot;, &quot;name&quot;: &quot;New Rule&quot;}]</string>
+                <string>[{&quot;channels&quot;: [{&quot;url&quot;: &quot;status:spindle.0.speed&quot;, &quot;trigger&quot;: true}, {&quot;url&quot;: &quot;status:spindle.0.override&quot;, &quot;trigger&quot;: true}], &quot;property&quot;: &quot;Text&quot;, &quot;expression&quot;: &quot;\&quot;{:.0f}\&quot;.format(ch[0] * ch[1])&quot;, &quot;name&quot;: &quot;actual spindle speed&quot;}]</string>
                </property>
               </widget>
              </item>
@@ -8757,7 +8763,7 @@ border-color:rgb(52, 101, 164)
                 <number>2</number>
                </property>
                <property name="text">
-                <string>500.0%</string>
+                <string>0.0%</string>
                </property>
                <property name="rules" stdset="0">
                 <string>[{&quot;channels&quot;: [{&quot;url&quot;: &quot;status:max_velocity&quot;, &quot;trigger&quot;: true}], &quot;property&quot;: &quot;Text&quot;, &quot;expression&quot;: &quot;'{:3}%'.format(ch[0]*100)&quot;, &quot;name&quot;: &quot;rapid rate&quot;}]</string>
@@ -9899,12 +9905,12 @@ FEED</string>
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="jogbuttons"/>
   <buttongroup name="toolOffsetGroup"/>
-  <buttongroup name="offsetButtonGroup"/>
-  <buttongroup name="rapidbuttongroup"/>
-  <buttongroup name="jogmode"/>
-  <buttongroup name="mdiButtonGroup"/>
   <buttongroup name="leftnavbuttons"/>
+  <buttongroup name="jogbuttons"/>
+  <buttongroup name="offsetButtonGroup"/>
+  <buttongroup name="jogmode"/>
+  <buttongroup name="rapidbuttongroup"/>
+  <buttongroup name="mdiButtonGroup"/>
  </buttongroups>
 </ui>
